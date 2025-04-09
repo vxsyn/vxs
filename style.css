@@ -1,0 +1,220 @@
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #000;
+    color: #fff;
+    line-height: 1.4;
+    overflow: hidden; /* Prevent scrollbars */
+    /* Static Gradient Background */
+    background: linear-gradient(180deg, #000, #1a237e, #8e24aa);
+}
+
+.container {
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.logo img {
+    height: 30px; /* Increased logo size */
+    transition: height 0.3s ease; /* Smooth transition */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* For smaller screens */
+    .logo img {
+        height: 25px; /* Slightly smaller on mobile */
+    }
+}
+
+@media (min-width: 1200px) {
+    /* For larger screens */
+    .logo img {
+        height: 35px; /* Slightly larger on desktop */
+    }
+}
+
+main {
+    text-align: center;
+}
+
+#coming-soon {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.coming-soon-content h1 {
+    font-size: 2.5em; /* Smaller heading */
+    color: #fff;
+    text-shadow: 0 0 12px #3498db;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5em;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Added for floating effect */
+}
+
+.coming-soon-content h1::before,
+.coming-soon-content h1::after {
+    content: "Stand By";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #f0f;
+    opacity: 0.7;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    animation: glitch1 0.5s infinite alternate; /* Faster glitch */
+}
+
+.coming-soon-content h1::after {
+    color: #0ff;
+    clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
+    animation: glitch2 0.5s infinite alternate; /* Faster glitch */
+}
+
+.coming-soon-content p {
+    font-size: 1em;
+    color: #ddd;
+    margin-bottom: 1.5em;
+    font-weight: 400;
+    transition: transform 0.3s ease; /* Added for floating effect */
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #e67e22;
+}
+
+footer {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #888;
+    font-size: 0.7em;
+}
+
+/* Background Effects */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    display: grid;
+    grid-template-columns: repeat(50, 2vw);
+    grid-template-rows: repeat(50, 2vh);
+    pointer-events: none; /* Important: Don't interfere with clicks */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes glitch1 {
+    0% {
+        transform: translateX(0);
+    }
+
+    2%,
+    64% {
+        transform: translate(-2px, 0); /* Reduced movement */
+    }
+
+    5%,
+    60% {
+        transform: translate(2px, 0); /* Reduced movement */
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes glitch2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    2%,
+    64% {
+        transform: translate(-2px, 0); /* Reduced movement */
+    }
+
+    5%,
+    60% {
+        transform: translate(2px, 0); /* Reduced movement */
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Individual Pixel Styling */
+#pixel-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(50, 2vw);
+    grid-template-rows: repeat(50, 2vh);
+    pointer-events: none; /* Important: Don't interfere with clicks */
+}
+
+.pixel {
+    opacity: 0;
+    animation: pixelRain 2s infinite alternate;
+    background-color: #8e24aa;
+}
+
+@keyframes pixelFade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
